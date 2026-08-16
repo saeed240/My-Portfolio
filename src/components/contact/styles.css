@@ -1,0 +1,35 @@
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 50px;
+  padding: 0 20px;
+  justify-content: center;
+}
+
+.contact-container h2 {
+  text-align: justify;
+  color: #fd6f00;
+  font-size: 36px;
+  font-weight: 900;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+.socials a {
+  border: 5px solid #fd6f00;
+  padding: 15px 30px;
+  font-size: 24px;
+  font-weight: 900;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.socials a:hover {
+  background-color: #fd6f00;
+}
