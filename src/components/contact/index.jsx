@@ -24,36 +24,38 @@ function Contact() {
         <div className="message">
           <h2>Get In Touch</h2>
 
-          <label htmlFor="full-name" aria-label="full-name">
-            FULL NAME{" "}
-            <input
-              type="text"
-              id="name"
-              name="name"
-              placeholder="enter your full name"
-            />
-          </label>
+          <div className="form">
+            <label htmlFor="full-name" aria-label="full-name">
+              FULL NAME{" "}
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="enter your full name"
+              />
+            </label>
 
-          <label htmlFor="email" aria-label="email address">
-            EMAIL{" "}
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="enter your email"
-            />
-          </label>
+            <label htmlFor="email" aria-label="email address">
+              EMAIL{" "}
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="enter your email"
+              />
+            </label>
 
-          <label htmlFor="message">
-            MESSAGE
-            <textarea
-              name="message"
-              id="message"
-              placeholder="Please write your message here!"
-              maxLength={500}
-            ></textarea>
-          </label>
-          <button>SEND</button>
+            <label htmlFor="message">
+              MESSAGE
+              <textarea
+                name="message"
+                id="message"
+                placeholder="Please write your message here!"
+                maxLength={500}
+              ></textarea>
+            </label>
+            <button>SEND</button>
+          </div>
         </div>
       </div>
     </>
