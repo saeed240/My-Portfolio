@@ -65,6 +65,8 @@ function About() {
                   initiatives.
                 </li>
               </ul>
+
+              <h4>Nov 2023 - Nov 2025</h4>
             </div>
 
             <div className="work">
@@ -83,6 +85,8 @@ function About() {
                 </li>
                 <li>Maintained detailed verification records and reports.</li>
               </ul>
+
+              <h4>Oct 2024 - Dec 2024</h4>
             </div>
 
             <div className="work">
@@ -104,6 +108,8 @@ function About() {
                   communication tools.
                 </li>
               </ul>
+
+              <h4>Nov 2022 - Oct 2023</h4>
             </div>
           </div>
         </div>
