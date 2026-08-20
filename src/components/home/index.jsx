@@ -1,12 +1,8 @@
 import React from "react";
 
 //internal import
-
 import "./styles.css";
-import linkedin from "../../logos/linkedin.png";
-import github from "../../logos/github.png";
-import resume from "../../logos/resume.png";
-import profilePic from "../../logos/profilePic.jpg";
+import { linkedin, github, resume, profilePic } from "../../";
 
 function Home() {
   return (
@@ -23,7 +19,7 @@ function Home() {
             <span className="text">
               I am always open to new projects, collaborations, and creative
               challenges. Feel free to{" "}
-              <a href="/contact" className="get">
+              <a href="#contact" className="get">
                 get in touch!{" "}
               </a>{" "}
             </span>
@@ -33,10 +29,10 @@ function Home() {
         </div>
 
         <div className="logo-container">
-          <a href="">
+          <a href="https://linkedin.com">
             <img src={linkedin} alt="linkedin" />
           </a>
-          <a href="github.com/saeedibrahim">
+          <a href="https://github.com/saeed240">
             <img src={github} alt="github" />
           </a>
           <a href="">
@@ -45,16 +41,16 @@ function Home() {
         </div>
 
         <div className="skills-container">
-          <a href="">
+          <a href="#skills">
             <p>SKILLS</p>
           </a>
-          <a href="">
+          <a href="#projects">
             <p>PROJECTS</p>
           </a>
-          <a href="">
+          <a href="#experience">
             <p>EXPERIENCE</p>
           </a>
-          <a href="">
+          <a href="#contact">
             <p>CONTACT ME</p>
           </a>
         </div>

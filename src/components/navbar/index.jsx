@@ -1,11 +1,12 @@
-import React from "react";
+import { useState } from "react";
 
 //internal import
-
 import favIcon from "../../logos/favIcon.png";
 import "./styles.css";
 
 function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <>
       <div id="nav-container">
@@ -13,14 +14,33 @@ function Navbar() {
           <img src={favIcon} alt="favIcon" />
         </a>
 
-        <div className="tabs">
-          <a href="/">HOME</a>
-          <a href="/about">ABOUT</a>
-          <a href="/projects">PROJECTS</a>
-          <a href="/contact me" className="contact">
-            CONTACT ME
-          </a>
-        </div>
+        <button
+          className="hamburger"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="toggle menu"
+          aria-expanded={menuOpen}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul className={`tabs ${menuOpen ? "active" : ""}`}>
+          <li>
+            <a href="#home">HOME</a>
+          </li>
+          <li>
+            <a href="#about">ABOUT</a>
+          </li>
+          <li>
+            <a href="#projects">PROJECTS</a>
+          </li>
+          <li>
+            <a href="#contact" className="contact">
+              CONTACT ME
+            </a>
+          </li>
+        </ul>
       </div>
     </>
   );

@@ -5,13 +5,22 @@
   margin-top: 50px;
   padding: 0 20px;
   justify-content: center;
+
+  @media (min-width: 320px) and (max-width: 425px) {
+    padding: 0;
+  }
 }
 
 .contact-container h2 {
   text-align: justify;
-  color: #fd6f00;
+  color: var(--font-orange);
   font-size: 36px;
-  font-weight: 900;
+  font-weight: 700;
+
+  @media (min-width: 320px) and (max-width: 425px) {
+    font-size: 20px;
+    padding: 0 20px;
+  }
 }
 
 .socials {
@@ -19,25 +28,34 @@
   justify-content: center;
   margin-top: 50px;
   gap: 20px;
+
+  @media (min-width: 320px) and (max-width: 425px) {
+    gap: 10px;
+  }
 }
 
 .socials a {
-  border: 5px solid #fd6f00;
+  border: 2px solid var(--font-orange);
   padding: 15px 30px;
   font-size: 24px;
-  font-weight: 900;
-  color: #fff;
+  font-weight: 700;
+  color: var(--primary-white);
   border-radius: 5px;
+
+  @media (min-width: 320px) and (max-width: 425px) {
+    font-size: 12px;
+    padding: 12px;
+  }
 }
 
 .socials a:hover {
-  background-color: #fd6f00;
+  background-color: var(--orange-primary-hover);
 }
 
 .message {
   display: flex;
   flex-direction: column;
-  border: 2px solid #fd6f00;
+  border: 2px solid var(--font-orange);
   border-radius: 5px;
   align-items: center;
   width: 700px;
@@ -45,6 +63,16 @@
   height: 700px;
   max-width: 90%;
   box-sizing: border-box;
+
+  @media (min-width: 320px) and (max-width: 425px) {
+    width: 100%;
+    max-width: 95%;
+    height: auto;
+    min-height: 550px;
+    margin: 30px auto 0;
+    padding: 20px 15px;
+    flex-direction: column;
+  }
 }
 
 .message h2 {
@@ -57,13 +85,23 @@
   gap: 20px;
   padding: 30px;
   text-align: left;
+
+  @media (min-width: 320px) and (max-width: 425px) {
+    gap: 20px;
+    padding: 15px;
+    width: 100%;
+  }
 }
 
 .form label {
-  color: #fff;
+  color: var(--primary-white);
   font-size: 20px;
-  font-weight: 900;
+  font-weight: 700;
   display: block;
+
+  @media (min-width: 320px) and (max-width: 425px) {
+    font-size: 16px;
+  }
 }
 
 .form input {
@@ -73,10 +111,27 @@
   border: 5px;
   display: block;
   padding: 10px;
+
+  @media (max-width: 768px) {
+    width: 520px;
+    height: 30px;
+  }
+
+  @media (max-width: 425px) {
+    width: 318px;
+  }
+
+  @media (max-width: 375px) {
+    width: 272px;
+  }
+
+  @media (max-width: 320px) {
+    width: 218px;
+  }
 }
 
 .form input:focus {
-  border: 2px solid #fd6f00;
+  border: 2px solid var(--font-orange);
   border-radius: 10px;
   outline: none;
 }
@@ -87,31 +142,75 @@
   display: block;
   border-radius: 10px;
   border: 5px;
+
+  @media (max-width: 768px) {
+    width: 536px;
+    height: 200px;
+  }
+
+  @media (max-width: 425px) {
+    width: 334px;
+  }
+
+  @media (max-width: 375px) {
+    width: 287px;
+  }
+
+  @media (max-width: 320px) {
+    width: 235px;
+    height: 200px;
+  }
 }
 
 .form textarea:focus {
-  border: 2px solid #fd6f00;
+  border: 2px solid var(--font-orange);
   border-radius: 10px;
   outline: none;
 }
 
 .form ::placeholder {
-  color: #fff;
-  font-size: 24px;
+  color: var(--primary-white);
+  font-size: 20px;
   font-weight: bold;
   opacity: 0.6;
+
+  @media (min-width: 375px) and (max-width: 425px) {
+    font-size: 12px;
+  }
+
+  @media (max-width: 320px) {
+    font-size: 10px;
+  }
 }
 
 .form button {
   width: 565px;
   height: 50px;
-  color: #fff;
+  color: var(--primary-white);
   font-size: 24px;
-  font-weight: 900;
+  font-weight: 700;
   border-radius: 10px;
   border: 5px;
+
+  @media (max-width: 768px) {
+    width: 540px;
+  }
+
+  @media (max-width: 425px) {
+    width: 338px;
+    height: 50px;
+    font-size: 18px;
+  }
+
+  @media (max-width: 375px) {
+    width: 291px;
+  }
+
+  @media (max-width: 320px) {
+    width: 238px;
+  }
 }
 
 .form button:hover {
-  background-color: #fd6f00;
+  background-color: var(--orange-primary-hover);
 }
