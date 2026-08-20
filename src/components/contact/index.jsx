@@ -13,7 +13,7 @@ function Contact() {
           <a href="linkedin">
             <p>LINKEDIN</p>
           </a>
-          <a href="github">
+          <a href="https://github.com/saeed240">
             <p>GITHUB</p>
           </a>
           <a href="resume">

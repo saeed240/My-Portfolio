@@ -2,14 +2,16 @@ import React from "react";
 
 //internal import
 import "./styles.css";
-import html from "../../logos/html.png";
-import css from "../../logos/css3.png";
-import javascript from "../../logos/javascript.png";
-import react from "../../logos/react.png";
-import git from "../../logos/git.png";
-import typescript from "../../logos/typescript.png";
-import github from "../../logos/github.png";
-import tailwind from "../../logos/tailwind.png";
+import {
+  html,
+  css,
+  javascript,
+  react,
+  git,
+  typescript,
+  github,
+  tailwind,
+} from "../../";
 
 function About() {
   return (
@@ -36,8 +38,8 @@ function About() {
             <img src={react} alt="react-logo" />
             <img src={git} alt="git-logo" />
             <img src={typescript} alt="typescript-logo" />
-            <img src={github} alt="github-logo" />
-            <img src={tailwind} alt="tailwind-logo" />
+            <img src={github} alt="github-logo" className="hub" />
+            <img src={tailwind} alt="tailwind-logo" className="hub" />
           </div>
         </div>
 
