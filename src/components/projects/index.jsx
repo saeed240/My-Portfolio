@@ -1,5 +1,3 @@
-import React from "react";
-
 //internal import
 import "./styles.css";
 
@@ -12,10 +10,7 @@ function Projects() {
         <div className="projects">
           <a href="https://github.com/saeed240/My-Portfolio">My Portfolio</a>
           <a href="https://github.com/saeed240/Nextcent_v1"> Landing Page</a>
-          <a href="https://github.com/saeed240/Book-Inventory">
-            {" "}
-            Book Inventory
-          </a>
+          <a href="https://github.com/saeed240/Drum-Machine"> Drum Machine</a>
         </div>
       </div>
     </>
