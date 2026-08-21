@@ -1,5 +1,3 @@
-import React from "react";
-
 //internal import
 import "./styles.css";
 import { linkedin, github, resume, profilePic } from "../../";
@@ -29,7 +27,7 @@ function Home() {
         </div>
 
         <div className="logo-container">
-          <a href="https://linkedin.com">
+          <a href="https://linkedin.com/in/ibrahim-saeed-88783342a/">
             <img src={linkedin} alt="linkedin" />
           </a>
           <a href="https://github.com/saeed240">
