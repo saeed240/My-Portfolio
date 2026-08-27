@@ -5,7 +5,7 @@ import { linkedin, github, resume, profilePic } from "../../";
 function Home() {
   return (
     <>
-      <div id="home-container">
+      <div id="home">
         <h1>Hi, I am Ibrahim</h1>
 
         <div className="intro">
@@ -40,13 +40,13 @@ function Home() {
 
         <div className="skills-container">
           <a href="#skills">
-            <p>SKILLS</p>
+            <p id="skills">SKILLS</p>
           </a>
           <a href="#projects">
             <p>PROJECTS</p>
           </a>
           <a href="#experience">
-            <p>EXPERIENCE</p>
+            <p id="experience">EXPERIENCE</p>
           </a>
           <a href="#contact">
             <p>CONTACT ME</p>

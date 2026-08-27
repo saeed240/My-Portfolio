@@ -110,10 +110,12 @@
   width: 100%;
   height: 60px;
   border-radius: 10px;
-  border: 5px;
   display: block;
   padding: 10px;
+  font-size: 15px;
   box-sizing: border-box;
+  background-color: rgba(24, 24, 31, 0.85);
+  border: 2px solid gray;
 
   @media (max-width: 768px) {
     height: 30px;
@@ -130,9 +132,11 @@
   width: 100%;
   height: 200px;
   display: block;
+  font-size: 15px;
   border-radius: 10px;
-  border: 5px;
   box-sizing: border-box;
+  background-color: rgba(24, 24, 31, 0.85);
+  border: 2px solid gray;
 
   @media (max-width: 768px) {
     height: 200px;
@@ -147,9 +151,10 @@
 
 .form ::placeholder {
   color: var(--primary-white);
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   opacity: 0.6;
+  padding: 0 10px;
 
   @media (min-width: 375px) and (max-width: 425px) {
     font-size: 12px;
@@ -168,6 +173,7 @@
   font-weight: 700;
   border-radius: 10px;
   border: 5px;
+  background-color: rgba(24, 24, 31, 0.85);
 
   @media (max-width: 425px) {
     height: 50px;
@@ -197,5 +203,5 @@
 }
 
 .form-status.error {
-  color: #ff9b9b;
+  color: #f81313;
 }

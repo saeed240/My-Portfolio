@@ -14,7 +14,7 @@ import {
 function About() {
   return (
     <>
-      <div className="about-container">
+      <div id="about" className="about-container">
         <h2>About Me_______</h2>
         <p>
           I am a passionate Front-End Developer specializing in JavaScript,
