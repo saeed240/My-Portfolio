@@ -4,7 +4,7 @@ import "./styles.css";
 function Projects() {
   return (
     <>
-      <div className="project-container">
+      <div id="projects" className="project-container">
         <h2>Projects_______</h2>
 
         <div className="projects">

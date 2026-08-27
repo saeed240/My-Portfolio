@@ -11,7 +11,7 @@
   backdrop-filter: blur(10px);
   z-index: 1000;
 
-  @media (max-width: 768px) {
+  @media (max-width: 425px) {
     height: 65px;
     padding: 0 25px;
   }
@@ -28,6 +28,12 @@
   background: transparent;
   cursor: pointer;
   padding: 5px;
+  color: var(--font-head);
+
+  &:focus-visible {
+    outline: 2px solid var(--font-orange);
+    outline-offset: 4px;
+  }
 
   span {
     width: 25px;
@@ -37,11 +43,21 @@
   }
 }
 
-@media (min-width: 320px) and (max-width: 425px) {
+@media (max-width: 425px) {
   .hamburger {
     display: flex;
-    padding: 0 70px;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    margin-right: 50px;
   }
+}
+
+.close-icon {
+  font-size: 30px;
+  line-height: 1;
 }
 
 #nav-container img {
@@ -65,18 +81,19 @@
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
   z-index: 1000;
 
-  @media (max-width: 768px) {
+  @media (max-width: 425px) {
     display: none;
     position: absolute;
-    top: 40px;
-    right: 15px;
-    width: 180px;
+    top: 65px;
+    right: 25px;
+    width: 210px;
     gap: 5px;
     font-size: 14px;
-    padding: 0px 15px;
+    padding: 14px 15px;
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
+    background-color: rgb(24, 24, 31);
   }
 }
 

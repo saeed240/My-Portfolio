@@ -4,10 +4,10 @@ import "./styles.css";
 function Contact() {
   const contactEndpoint = import.meta.env.VITE_FORMSPREE_ENDPOINT;
 
-  async function handleSubmit(event) {
-    event.preventDefault();
+  async function handleSubmit(e) {
+    e.preventDefault();
 
-    const form = event.currentTarget;
+    const form = e.currentTarget;
     const submitButton = form.querySelector("button[type='submit']");
     const status = form.querySelector("[role='status']");
 
@@ -48,7 +48,7 @@ function Contact() {
 
   return (
     <>
-      <div className="contact-container">
+      <div id="contact" className="contact-container">
         <h2>Contact Me_______</h2>
 
         <div className="socials">
@@ -66,7 +66,12 @@ function Contact() {
         <div className="message">
           <h2>Get In Touch</h2>
 
-          <form className="form" onSubmit={handleSubmit}>
+          <form
+            className="form"
+            onSubmit={handleSubmit}
+            action="https://formsubmit.co/d2e05c8b1d56083058e7f01e3be997bc"
+            method="POST"
+          >
             <label htmlFor="full-name" aria-label="full-name">
               FULL NAME{" "}
               <input
