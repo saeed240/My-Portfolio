@@ -1,14 +1,17 @@
-//internal import
-import "./styles.css";
+// internal imports
+import './styles.css';
 
+// footer section
 function Footer() {
-  return (
-    <>
-      <div className="footer-container">
-        <p>&copy; 2026. All rights reserved.</p>
-      </div>
-    </>
-  );
+	return (
+		<footer className="footer">
+			<div>
+				<p>© 2026 Ibrahim Saeed</p>
+				<a href="#home">
+					Back to top <span aria-hidden="true">↑</span>
+				</a>
+			</div>
+		</footer>
+	);
 }
-
 export default Footer;
