@@ -1,118 +1,139 @@
-//internal import
-import "./styles.css";
+import { useState } from 'react';
 
+// internal imports
+import './styles.css';
+import cv from '../../logos/cv.pdf';
+
+// contact section
 function Contact() {
-  const contactEndpoint = import.meta.env.VITE_FORMSPREE_ENDPOINT;
+	const formSubmitEmail = import.meta.env.VITE_FORMSUBMIT_EMAIL?.trim();
+	const isConfigured = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formSubmitEmail ?? '');
+	const formAction = isConfigured ? `https://formsubmit.co/${formSubmitEmail}` : undefined;
+	const ajaxEndpoint = isConfigured ? `https://formsubmit.co/ajax/${formSubmitEmail}` : undefined;
+	const [status, setStatus] = useState({ message: '', type: '' });
+	const [isSending, setIsSending] = useState(false);
 
-  async function handleSubmit(e) {
-    e.preventDefault();
+	// handle submit
+	async function handleSubmit(event) {
+		event.preventDefault();
 
-    const form = e.currentTarget;
-    const submitButton = form.querySelector("button[type='submit']");
-    const status = form.querySelector("[role='status']");
+		if (!ajaxEndpoint) {
+			setStatus({
+				message: 'Contact form is not configured yet. Please try again later.',
+				type: 'error',
+			});
+			return;
+		}
+		const form = event.currentTarget;
+		setIsSending(true);
+		setStatus({ message: 'Sending your message…', type: '' });
 
-    if (!contactEndpoint) {
-      status.textContent = "Contact form is not configured yet.";
-      status.className = "form-status error";
-      return;
-    }
+		try {
+			const response = await fetch(ajaxEndpoint, {
+				method: 'POST',
+				headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+				body: JSON.stringify(Object.fromEntries(new FormData(form))),
+			});
+			const result = await response.json();
+			if (!response.ok || result.success === false || result.success === 'false') {
+				throw new Error('Unable to send message');
+			}
+			form.reset();
+			setStatus({ message: 'Thanks — your message has been sent.', type: 'success' });
+		} catch {
+			setStatus({ message: 'Something went wrong. Please try again later.', type: 'error' });
+		} finally {
+			setIsSending(false);
+		}
+	}
 
-    submitButton.disabled = true;
-    status.textContent = "Sending...";
-    status.className = "form-status";
-
-    try {
-      const response = await fetch(contactEndpoint, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(Object.fromEntries(new FormData(form))),
-      });
-
-      if (!response.ok) {
-        throw new Error("Unable to send message");
-      }
-
-      form.reset();
-      status.textContent = "Thanks, your message has been sent.";
-      status.className = "form-status success";
-    } catch {
-      status.textContent = "Something went wrong. Please try again later.";
-      status.className = "form-status error";
-    } finally {
-      submitButton.disabled = false;
-    }
-  }
-
-  return (
-    <>
-      <div id="contact" className="contact-container">
-        <h2>Contact Me_______</h2>
-
-        <div className="socials">
-          <a href="https://linkedin.com/in/ibrahim-saeed-88783342a/">
-            <p>LINKEDIN</p>
-          </a>
-          <a href="https://github.com/saeed240">
-            <p>GITHUB</p>
-          </a>
-          <a href="resume">
-            <p>RESUME</p>
-          </a>
-        </div>
-
-        <div className="message">
-          <h2>Get In Touch</h2>
-
-          <form
-            className="form"
-            onSubmit={handleSubmit}
-            action="https://formsubmit.co/d2e05c8b1d56083058e7f01e3be997bc"
-            method="POST"
-          >
-            <label htmlFor="full-name" aria-label="full-name">
-              FULL NAME{" "}
-              <input
-                type="text"
-                id="full-name"
-                name="name"
-                placeholder="enter your full name"
-                autoComplete="name"
-                required
-              />
-            </label>
-
-            <label htmlFor="email" aria-label="email address">
-              EMAIL{" "}
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="enter your email"
-                autoComplete="email"
-                required
-              />
-            </label>
-
-            <label htmlFor="message" aria-label="message">
-              MESSAGE
-              <textarea
-                name="message"
-                id="message"
-                placeholder="Please write your message here!"
-                maxLength={500}
-                required
-              ></textarea>
-            </label>
-            <button type="submit">SEND</button>
-            <p className="form-status" role="status" aria-live="polite"></p>
-          </form>
-        </div>
-      </div>
-    </>
-  );
+	return (
+		<section id="contact" className="contact-section">
+			<div className="contact-shell section-shell">
+				<div className="contact-copy">
+					<p className="eyebrow">Get in touch</p>
+					<h2 className="section-heading">
+						Have an idea?
+						<br />
+						<em>Let’s make it real</em>
+					</h2>
+					<p>
+						Whether it’s a project, an opportunity, or a quick hello, I’d love to hear from you.
+					</p>
+					<div className="contact-links">
+						<a
+							href="https://linkedin.com/in/ibrahim-saeed-88783342a/"
+							target="_blank"
+							rel="noreferrer"
+						>
+							LinkedIn <span aria-hidden="true">↗</span>
+						</a>
+						<a href="https://github.com/saeed240" target="_blank" rel="noreferrer">
+							GitHub <span aria-hidden="true">↗</span>
+						</a>
+						<a href={cv} target="_blank" rel="noopener noreferrer">
+							CV <span aria-hidden="true">↗</span>
+						</a>
+					</div>
+				</div>
+				<form className="contact-form" onSubmit={handleSubmit} action={formAction} method="POST">
+					<input type="hidden" name="_subject" value="New portfolio enquiry" />
+					<input type="hidden" name="_template" value="table" />
+					<input
+						className="honey-field"
+						type="text"
+						name="_honey"
+						tabIndex="-1"
+						autoComplete="off"
+						aria-hidden="true"
+					/>
+					<div className="field-row">
+						<div className="field">
+							<label htmlFor="full-name">Your name</label>
+							<input
+								type="text"
+								id="full-name"
+								name="name"
+								placeholder="Ibrahim Saeed"
+								autoComplete="name"
+								minLength={2}
+								maxLength={80}
+								required
+							/>
+						</div>
+						<div className="field">
+							<label htmlFor="email">Email address</label>
+							<input
+								type="email"
+								id="email"
+								name="email"
+								placeholder="you@example.com"
+								autoComplete="email"
+								required
+							/>
+						</div>
+					</div>
+					<div className="field">
+						<label htmlFor="message">Tell me about your project</label>
+						<textarea
+							name="message"
+							id="message"
+							placeholder="A little context goes a long way…"
+							maxLength={1000}
+							minLength={10}
+							required
+						/>
+					</div>
+					<button className="submit-button" type="submit" disabled={isSending}>
+						{isSending ? 'Sending…' : 'Send message'}
+						<span aria-hidden="true">→</span>
+					</button>
+					<p className={`form-status ${status.type}`} role="status" aria-live="polite">
+						{status.message}
+					</p>
+				</form>
+			</div>
+		</section>
+	);
 }
-
 export default Contact;
